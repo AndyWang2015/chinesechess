@@ -1,1 +1,1 @@
-$(document).ready(function(){var r={};r.wrp=$(".wrapper")});
+$(document).ready(function(){var r={};r.wrp=$(".wrapper"),console.log("start")});
