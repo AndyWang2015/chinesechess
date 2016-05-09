@@ -1,1 +1,0 @@
-$(document).ready(function(){var r={};r.wrp=$(".wrapper")});
