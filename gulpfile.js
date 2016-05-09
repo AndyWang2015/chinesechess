@@ -12,44 +12,44 @@ gulp.task('compass',function(){
 		.pipe($.compass({
 			sourcemap: true,
 			time: true,
-			css: 'andy/css',
+			css: 'website/css',
 			sass: 'scss',
 			style: 'compressed'
 		}))    
-		.pipe(gulp.dest('andy/css'))
+		.pipe(gulp.dest('website/css'))
 		.pipe($.connect.reload());
 });
 gulp.task('js',function(){
     gulp.src('js/*.js')
     	.pipe($.plumber())
     	.pipe($.uglify())
-	    .pipe(gulp.dest('andy/js'))
+	    .pipe(gulp.dest('website/js'))
 		.pipe($.connect.reload());
 });
 gulp.task('connect', function() {
   $.connect.server({
-  	root: 'D:/yihsien/case/20160331_chess/chinese_chess/andy/',
+  	root: 'D:/yihsien/case/20160331_chess/chinese_chess/website/',
   	livereload: true
   });
 });
 gulp.task('imageminJPG', function () {
 	gulp.src('org_images/*.jpg')
 		.pipe($.plumber())
-		.pipe($.changed('andy/images'))	
+		.pipe($.changed('website/images'))	
 		.pipe(imageminMozjpeg({quality: 90})())
-		.pipe(gulp.dest('andy/images'));
+		.pipe(gulp.dest('website/images'));
 });
 gulp.task('imageminPNG', function () {
 	gulp.src('org_images/*.png')
 		.pipe($.plumber())
-		.pipe($.changed('andy/images'))	
+		.pipe($.changed('website/images'))	
 		.pipe(imageminPngquant({quality: '90'})())
-		.pipe(gulp.dest('andy/images'));
+		.pipe(gulp.dest('website/images'));
 });
 gulp.task('uploadHTML', function () {
 	gulp.src('html/*.html')
-		.pipe($.changed('andy'))
-		.pipe(gulp.dest('andy'))
+		.pipe($.changed('website'))
+		.pipe(gulp.dest('website'))
 		.pipe($.connect.reload());
 });
 gulp.task('del',function(){
