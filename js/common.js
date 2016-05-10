@@ -2,11 +2,15 @@
 	var webData ={};
 	webData.wrp=$('.wrapper');
 
+	//textarea value 換行
+	//text = text.replace(/\n\r?/g, '<br />');
+
 	//init
 	if(webData.wrp.hasClass('index')) indexfunction();
 	
 
 	//AddListener
+
 	$('.newsbar li').click(function(){newsbaraclick($(this).index());});
 	$('.menua').click(function(){menuaclick($(this).index());});
 	$('.gotopbtn').click(function(){$('html,body').animate({scrollTop:0},500);});
@@ -14,9 +18,13 @@
 	$('.banner .rightbtn').click(function(){webData.banner_swiper.slideNext();});
 	$('.photo .leftbtn').click(function(){webData.photo_swiper.slidePrev();});
 	$('.photo .rightbtn').click(function(){webData.photo_swiper.slideNext();});
+	$('.top .logo').click(function(){wg("index.html");});
 	window.onscroll = windowOnscroll;
+	$(window).load(function(){wload();});
 
-	
+	function wload(){
+		showloading(false);
+	}
 
 	//Event
 	function newsbaraclick(_n){
@@ -78,7 +86,10 @@
 		if(window.pageYOffset > 0) $('.gotopbtn').fadeIn();
 		else $('.gotopbtn').fadeOut();
 	}
-	
+	function showloading(_t){
+		if(_t) $('.loading').fadeIn();
+		else $('.loading').fadeOut();
+	}
 
 
 })//ready end  

@@ -1,5 +1,15 @@
 @import "base.scss";
 $PGwidth:980px;
+.loading{
+	@include f;
+	z-index: 9999;
+	background-color: rgba(255,255,255,1);
+	span{
+		@include a(200px,50px,50%,50%,-100px,-25px);
+		@include font(32px,50px,#000);
+		text-align: center;
+	}
+}
 .top{
 	@include r;
 	border-bottom: 1px solid #eeeeee;
@@ -60,6 +70,7 @@ $PGwidth:980px;
 }
 .wrapper{
 	@include r;
+	// index page
 	.gotopbtn{
 		@include f(48px,48px,50%,auto,490px);
 		@include border-radius(24px);
@@ -71,7 +82,7 @@ $PGwidth:980px;
 		background-color: #607c25;
 	}
 	.banner{
-		@include r;
+		@include r(100%,550px);
 		overflow: hidden;
 		.leftbtn{
 			@include a(50px,100%,25px);
@@ -97,8 +108,9 @@ $PGwidth:980px;
 				margin: 0 10px;
 			}
 		}
-		img{width: 100%;vertical-align: top;min-width: $PGwidth;}
-	}
+		.swiper-slide{text-align: center;overflow: hidden;height:550px;background-color: #5eb3ef;}
+		img{height:100%;display: inline-block;}
+	}	
 	.news{
 		@include r;
 		background: url(../images/index_news_bg.png) no-repeat;
@@ -159,17 +171,17 @@ $PGwidth:980px;
 				text-align: center;
 			}
 			.boxall{
-				@include r;				
+				@include r;
 			}
 			.box{
 				@include r;
-				text-align: center;
+				text-align: left;
 				display: none;
 				&.on{display: block;}
 				.n{
 					position: relative;
 					width: 250px;					
-					margin: 0 39px;
+					margin: 0 37px;
 					display: inline-block;
 					text-align: center;
 					transition:0.3s;
@@ -327,6 +339,333 @@ $PGwidth:980px;
 				}				
 				&:hover{opacity: 0.8;}
 				&:nth-child(3n){margin-right: 0;}				
+			}
+		}
+	}
+
+	//content page	
+	.banner_inside{
+		@include r(100%,300px);
+		overflow: hidden;
+		.word{
+			@include a($PGwidth,100%,50%,0,$PGwidth/2*-1);
+			text-align: center;
+			z-index: 9;			
+			.w1{
+				@include r;
+				@include font(60px,60px,#ffffff);
+				margin-top: 100px;
+				text-align: center;
+			}
+			.w2{
+				@include r;
+				@include font(21px,21px,#ffffff);
+				margin-top: 18px;
+				text-align: center;
+			}
+
+		}
+		.pic{
+			@include a;
+			overflow: hidden;
+			text-align: center;
+			img{height:100%;display: inline-block;vertical-align: top;}
+		}
+	}
+	.sec_menu{
+		@include r;
+		text-align: center;
+		background-color: #5eb3ef;
+		margin-bottom: 50px;
+		a{
+			@include font(15px,30px,#fff);
+			position: relative;
+			width: auto;
+			height: 50px;
+			box-sizing:border-box;
+			padding: 10px 0;
+			text-align: center;
+			display: inline-block;
+			margin: 0 40px;
+			&:hover,&.on{color:#f8e88e;}
+			&.back{
+				&:before{
+					position: relative;
+					content:"";
+					width: 14px;
+					height: 100%;
+					margin-right: 10px;
+					background: url(../images/sec_menu_icon.png) no-repeat;
+					background-position: center;
+					display: inline-block;
+					vertical-align: middle;
+				}
+			}
+		}
+	}
+	.loadmore{
+		@include r;
+		text-align: center;
+		a{
+			@include border-radius(10px);
+			@include font(12px,12px,#ffffff);
+			position: relative;
+			width: auto;			
+			display: inline-block;
+			background-color: #51711b;
+			padding: 4px 18px;
+			text-align: center;
+			&:after{
+				content:"";
+				width: 8px;
+				height: 7px;
+				margin-left: 5px;
+				background: url(../images/loadmore.png) no-repeat;
+				display: inline-block;
+			}
+		}
+	}
+	.news_box{
+		@include r;
+		.news_boxin{
+			position: relative;
+			width: $PGwidth;
+			margin: auto;
+			.n{
+				position: relative;
+				width: 250px;					
+				margin: 0 37px 45px 37px;
+				display: inline-block;
+				text-align: center;
+				transition:0.3s;
+				.pic{
+					@include r(250px,250px);
+					@include border-radius(125px);
+					box-sizing:border-box;
+					border:1px solid #f3f3f3;
+					background-color: #fff;
+					.picin{
+						@include a(220px,220px,50%,50%,-110px,-110px);
+						@include border-radius(110px);
+						border:5px solid #000;
+						box-sizing:border-box;
+						overflow: hidden;
+					}
+				}
+				.t{
+					@include r;
+					@include font(21px,21px,#000000);
+					text-align: center;
+					margin: 28px 0;
+
+				}
+				.w{
+					@include r;
+					@include font(15px,22px,#666666);
+					text-align: center;
+				}
+				.date{
+					@include r;
+					@include font(15px,22px,#cccccc);
+					text-align: center;
+					margin-bottom: 30px;
+				}
+				.more{
+					@include font(15px,30px,#fffefe);
+					@include border-radius(5px);
+					text-align: center;						
+					position: relative;
+					width: 90px;
+					height: 30px;
+					display: inline-block;
+					background-color: #000000;
+				}
+				&:hover{opacity: 0.8;}
+				&:nth-child(3n){margin-right: 0;}
+				&:nth-child(2n){.pic{.picin{border:5px solid #ea483e;}}.more{background-color: #ea483e}}
+			}
+		}
+	}
+	.news_content_box{
+		@include r;
+		.news_content_boxin{
+			position: relative;
+			width: $PGwidth;
+			margin: auto;
+			.title{
+				@include r;
+				@include font(36px,45px,#51711b);
+				text-align: center;
+				margin-bottom: 20px;
+			}
+			.date{
+				@include r;
+				@include font(15px,27px,#ea483e);
+				text-align: center;
+				margin-bottom: 45px;
+			}
+			.pic{
+				@include r;
+				text-align: center;
+				margin-bottom: 45px;
+				img{
+					max-width: 100%;
+					vertical-align: top;
+					display: inline-block;					
+				}
+			}
+			.w{
+				@include r;
+				@include font(15px,27px,#666666);
+				text-align: left;
+				box-sizing:border-box;
+				padding: 0 20px;
+			}
+		}
+	}
+	.about_box{
+		@include r;
+		.about_boxin{
+			position: relative;
+			width: $PGwidth;
+			margin: auto;
+			.title{
+				@include r;
+				@include font(36px,40px,#000000);
+				text-align: center;
+				margin-bottom: 50px;
+			}
+			.cover{
+				@include r;
+				text-align: center;
+				margin-bottom: 40px;
+				img{
+					max-width: 100%;
+					display: inline-block;
+					vertical-align: top;
+				}
+			}
+			.info{
+				@include r;
+				@include font(15px,32px,#666666);
+				text-align: left;
+				margin-bottom: 60px;
+			}
+			.teacher{
+				@include r;
+				.t{
+					@include r;
+					@include font(36px,40px,#000000);
+					margin-bottom: 40px;
+				}
+				.box{
+					@include r;
+					.per{
+						@include r(23.5%);
+						margin-right: 2%;
+						.pic{
+							@include r(100%,225px);
+							box-sizing:border-box;
+							border:5px solid #51711b;
+							background-color: #51711b;
+							text-align: center;
+							margin-bottom: 18px;
+							overflow: hidden;
+							img{
+								height: 100%;
+								display: inline-block;
+								vertical-align: top;
+							}
+						}
+						.name{
+							@include r;
+							@include font(21px,27px,#51711b);
+							text-align: left;
+							margin-bottom: 18px;
+						}
+						.w{
+							@include r;
+							@include font(15px,22px,#666666);
+							text-align: left;
+						}
+						&:nth-child(4n){margin-right: 0;}
+					}
+				}
+			}
+		}
+	}
+	.learn_box{
+		@include r;
+		.learn_boxin{
+			position: relative;
+			width: $PGwidth;
+			margin: auto;
+			.title{
+				@include r;
+				@include font(36px,40px,#000000);
+				margin-bottom: 50px;
+				text-align: center;
+			}
+			.main{
+				@include r;
+				margin-bottom: 100px;
+				.lt{
+					@include r(50%);
+					box-sizing:border-box;
+					padding: 0 20px;
+					.icon{
+						@include a(50px,50px,auto,auto);
+						right: 20px;
+						bottom: 0;
+						background: url(../images/learn_scaleicon.png) no-repeat;
+						background-position: center;
+						cursor: pointer;
+						z-index: 9;
+					}
+					.pic{
+						@include r;
+						text-align: center;						
+						img{
+							max-width: 100%;
+							display: inline-block;
+							vertical-align: top;
+						}
+					}
+				}
+				.rt{
+					@include r(50%);
+					box-sizing:border-box;
+					padding: 0 20px;
+					.t{
+						@include r;
+						@include font(15px,32px,#51711b,bolder);						
+					}
+					.w{
+						@include r;
+						@include font(15px,32px,#666666);
+						margin-bottom: 45px;
+						&:last-child{margin-bottom: 0;}
+					}
+				}
+			}
+			.photo{
+				@include r;
+				.pic{
+					@include r(23.5%);
+					box-sizing:border-box;
+					border:5px solid #51711b;
+					margin-right: 2%;
+					margin-bottom: 2%;
+					text-align: center;
+					background-color: #51711b;
+					cursor: pointer;
+					img{
+						max-width: 100%;
+						display: inline-block;
+						vertical-align: top;
+					}
+					&:nth-child(4n){margin-right: 0;}
+				}
 			}
 		}
 	}
