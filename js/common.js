@@ -310,6 +310,7 @@
 	}
 	function wresize(){
 		if(webData.wrp.hasClass('index')) indexbannerresize();
+		if($('.banner_inside').length>0) banner_insidefc();
 	}
 	function getDataCollectionIndex(_collectname,_callback){
 		$.ajax({
