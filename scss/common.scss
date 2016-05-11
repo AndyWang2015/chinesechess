@@ -10,6 +10,60 @@ $PGwidth:980px;
 		text-align: center;
 	}
 }
+.photo_pop{
+	@include f;
+	z-index: 9998;
+	display: none;
+	text-align: center;
+	.closebtn{
+		@include a(30px,30px,auto,25px);
+		right: 25px;
+		background: url(../images/photo_pop_closebtn.png) no-repeat;
+		background-position: center;
+		background-size: contain;
+		z-index: 99;
+		cursor: pointer;
+	}
+	.leftbtn{
+		@include a(50px,50px,25px,50%,0,-25px);
+		background: url(../images/index_banner_left.png) no-repeat;
+		background-position: center;
+		cursor: pointer;
+		z-index: 99;
+	}
+	.rightbtn{
+		@include a(50px,50px,auto,50%,0,-25px);
+		right: 25px;
+		background: url(../images/index_banner_right.png) no-repeat;
+		background-position: center;
+		cursor: pointer;
+		z-index: 99;
+	}
+	.photo{
+		position: relative;
+		width: auto;
+		display: inline-block;
+		height: 100%;
+		box-sizing:border-box;
+		padding: 3% 0;		
+		opacity: 0;
+		transition:0.5s;
+		z-index: 9;
+		&.on{
+			opacity: 1;
+		}
+		img{
+			height:100%;
+			display: inline-block;
+			vertical-align: top;
+		}
+	}
+	.cover{
+		@include a;
+		z-index: 0;
+		background-color: rgba(0,0,0,0.8);
+	}
+}
 .top{
 	@include r;
 	border-bottom: 1px solid #eeeeee;
@@ -109,6 +163,11 @@ $PGwidth:980px;
 			}
 		}
 		.swiper-slide{text-align: center;overflow: hidden;height:550px;background-color: #5eb3ef;}
+		a{
+			@include r(100%,100%);
+			overflow: hidden;
+			text-align: center;
+		}
 		img{height:100%;display: inline-block;}
 	}	
 	.news{
@@ -615,7 +674,7 @@ $PGwidth:980px;
 					padding: 0 20px;
 					.icon{
 						@include a(50px,50px,auto,auto);
-						right: 20px;
+						right: 0;
 						bottom: 0;
 						background: url(../images/learn_scaleicon.png) no-repeat;
 						background-position: center;
@@ -895,4 +954,10 @@ $PGwidth:980px;
 			}
 		}
 	}
+}
+
+
+@media screen and (max-width: 1108px) {
+	.wrapper .news .newsin .newsbar{display: none;}
+	.wrapper .gotopbtn{margin-left: 440px;bottom:140px;}
 }
