@@ -19,7 +19,8 @@
 	if(webData.wrp.hasClass('award')) getDataCollection('awards',awardfunction);
 	if(webData.wrp.hasClass('link')) getDataCollection('otherlink',linkfunction);
 	if(webData.wrp.hasClass('about')) getDataCollection('aboutus_page',aboutfunction);
-	if(webData.wrp.hasClass('contact')){webData.nowpage=1;getDataCollection('contactus',contactfunction);}
+	if(webData.wrp.hasClass('contact')){webData.nowpage=1;getDataCollection('contactus',contactfunction);}	
+	if($('.banner_inside').length>0) banner_insidefc();
 
 	//AddListener
 	$('.contact_box .user_btn').click(function(){if(!$(this).hasClass('on')) sendmail($(this));});
@@ -333,6 +334,10 @@
 				console.log("error:", xhr, textStatus, errorThrown);
 			}
 		});
+	}
+	function banner_insidefc(){
+		var _margleft = ($(window).width() - $('.banner_inside').find('img').width()) / 2;
+		if(_margleft<0) $('.banner_inside').find('img').css('margin-left',_margleft);
 	}
 
 
