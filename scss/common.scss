@@ -3,7 +3,7 @@ $PGwidth:980px;
 .loading{
 	@include f;
 	z-index: 9999;
-	background-color: rgba(255,255,255,1);
+	background-color: rgba(255,255,255,0.75);
 	span{
 		@include a(170px,190px,50%,50%,-85px,-75px);
 		background: url(../images/loading.png) no-repeat;
