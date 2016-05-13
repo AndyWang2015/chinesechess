@@ -386,7 +386,8 @@ $PGwidth:980px;
 				margin: 0 39px;
 				display: inline-block;
 				text-align: center;
-				transition:0.3s;				
+				transition:0.3s;		
+				vertical-align: top;		
 				.t{
 					@include r;
 					@include font(21px,21px,#51711b);
