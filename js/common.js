@@ -91,7 +91,7 @@
 		else webData.mapgo = 1;
 		if(webData.mapgo!=2) return;
 		webData.getgeocoder = new google.maps.Geocoder();
-		webData.mapimage = 'http://benefique-event.shiseido.com.tw/images/e_map_icon.png';
+		webData.mapimage = 'http://andywang2015.github.io/chinesechess/website/images/mapicon.png';
 		textTocoord(webData.mapaddr);
 	}
 	function changemap(_lat,_lon){
