@@ -340,7 +340,16 @@
 		var _margleft = ($(window).width() - $('.banner_inside').find('img').width()) / 2;
 		if(_margleft<0) $('.banner_inside').find('img').css('margin-left',_margleft);
 	}
-
+	function changeDay(_d){		
+		if(_d==0) _d="日";
+		else if(_d==1) _d="一";
+		else if(_d==2) _d="二";
+		else if(_d==3) _d="三";
+		else if(_d==4) _d="四";
+		else if(_d==5) _d="五";
+		else if(_d==6) _d="六";
+		return _d;
+	}
 
 })//ready end  
 function getUrlVars(){
