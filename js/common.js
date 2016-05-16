@@ -48,7 +48,7 @@
 	function sendmail(_o){
 		_o.addClass('on');				
 		webData.userdata={
-			postdate:new Date(),
+			postdate:new Date().getFullYear()+"/"+ (new Date().getMonth()*1+1) + "/"+new Date().getDate() + "星期"+changeDay(new Date().getDay()),
 			userword:$('.user_word').val(),
 			username:$('.user_name').val(),
 			userphone:$('.user_phone').val(),
