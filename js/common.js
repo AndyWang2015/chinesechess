@@ -1,10 +1,7 @@
 ﻿$(document).ready(function(){
 	var webData ={};
 	webData.wrp=$('.wrapper');
-	webData.mlabApikey = "n6FXodWWCdM14KrePZHrRPPovbzboRn6";
-
-	//textarea value 換行
-	//text = text.replace(/\n\r?/g, '<br />');
+	webData.mlabApikey = "n6FXodWWCdM14KrePZHrRPPovbzboRn6";	
 
 	//init
 	webData.nowpage = getUrlVars()['page'];
@@ -41,7 +38,7 @@
 	$(window).resize(function(){wresize();});
 
 	function wload(){		
-		
+		if(webData.wrp.hasClass('contact')){initmap();}
 	}
 
 	//Event
@@ -85,8 +82,24 @@
 	}
 	function contactfunction(data){
 		$('.contact_boxin .addr').html(data[0].addr);
-		if(getUrlVars()['page']==2) $('body,html').animate({scrollTop:$('.pg2').offset().top - 50},0);
-		showloading(false);
+		webData.mapaddr = data[0].addr;		
+		initmap();
+		if(getUrlVars()['page']==2) $('body,html').animate({scrollTop:$('.pg2').offset().top - 50},0);		
+	}
+	function initmap(){
+		if(webData.mapgo) webData.mapgo=2;
+		else webData.mapgo = 1;
+		if(webData.mapgo!=2) return;
+		webData.getgeocoder = new google.maps.Geocoder();
+		webData.mapimage = 'http://benefique-event.shiseido.com.tw/images/e_map_icon.png';
+		textTocoord(webData.mapaddr);
+	}
+	function changemap(_lat,_lon){
+		webData.mapOptions = {zoom: 18,center: new google.maps.LatLng(_lat, _lon)}
+		webData.map = new google.maps.Map(document.getElementById('mapCanvas'),webData.mapOptions);	
+		var beachMarker = new google.maps.Marker({position: new google.maps.LatLng(_lat, _lon),map: webData.map,icon: webData.mapimage});
+	    webData.map.setCenter(new google.maps.LatLng(_lat, _lon));
+	    showloading(false);
 	}
 	function aboutfunction(data){
 		$('.about_boxin').html('<div class="title">'+data[0].title+'</div><div class="cover"><img src="'+data[0].cover+'" alt=""></div><div class="info">'+data[0].info+'</div><div class="teacher"><div class="t">專業師資</div><div class="box"></div></div>');
@@ -157,9 +170,7 @@
 			webData.indexphoto.push(data);
 		}
 		webData.indexcomplete +=1;
-		console.log(webData.indexcomplete);
 		if(webData.indexcomplete==7){
-			console.log("complete");			
 			for(i in webData.indexphoto){
 				if(webData.indexphoto[i].collectname=="index_banner"){
 					$('.banner .swiper-wrapper').html('');
@@ -349,6 +360,16 @@
 		else if(_d==5) _d="五";
 		else if(_d==6) _d="六";
 		return _d;
+	}	
+	function textTocoord(STR){	
+		webData.getgeocoder.geocode({'address':STR}, function (results, status) {
+			if (results != null && status === google.maps.GeocoderStatus.OK) {				
+				coord = results[0].geometry.location.toString().replace('(','').replace(')','').split(',');
+				changemap(coord[0],coord[1]);				
+			} else {
+				alert("輸入間隔太快，請隔1~2秒再輸入");				
+			};
+		});
 	}
 
 })//ready end  

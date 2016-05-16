@@ -845,8 +845,9 @@ $PGwidth:980px;
 					@include r(100%,325px);
 					box-sizing:border-box;
 					border:5px solid #5eafe1;
+
 				}
-				iframe{
+				iframe,#mapCanvas{
 					@include r(100%,100%);
 				}
 			}
