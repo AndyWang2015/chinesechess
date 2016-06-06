@@ -540,8 +540,10 @@ $PGwidth:980px;
 				}
 				.t{
 					@include r;
-					@include font(21px,21px,#000000);
+					@include font(21px,24px,#000000);
 					text-align: center;
+					max-height: 48px;
+					overflow: hidden;
 					margin: 28px 0;
 
 				}
@@ -549,6 +551,8 @@ $PGwidth:980px;
 					@include r;
 					@include font(15px,22px,#666666);
 					text-align: center;
+					max-height: 44px;
+					overflow: hidden;
 				}
 				.date{
 					@include r;
