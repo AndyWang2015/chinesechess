@@ -37,7 +37,7 @@
 	$(window).load(function(){wload();});
 	$(window).resize(function(){wresize();});
 
-	function wload(){		
+	function wload(){
 		if(webData.wrp.hasClass('contact')){initmap();}
 	}
 
@@ -112,7 +112,13 @@
 	function linkfunction(data){
 		data = data.reverse();
 		$('.link_boxin').html('');
-		for(i in data) $('.link_boxin').append('<a href="'+data[i].link+'" class="n" target="_blank"><img src="'+data[i].pic+'"></a>');
+		for(i in data) $('.link_boxin').append('<a href="'+data[i].link+'" class="n" target="_blank"><img class="linkimg" src="'+data[i].pic+'"></a>');
+		$(".linkimg").load(function(){
+			var _mt = (124 - $(this).height())/2;
+			$(this).css('margin-top',_mt);			
+		}).each(function(){
+			if(this.complete) {$(this).trigger('load');}
+		});
 		showloading(false);
 	}
 	function awardfunction(data){		

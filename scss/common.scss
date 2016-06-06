@@ -164,6 +164,7 @@ $PGwidth:980px;
 		}
 		.banner-pagination{
 			@include a(auto,8px,50%,auto);
+			@include transform(translate(-50%,0));
 			bottom: 25px;
 			text-align: center;
 			z-index: 9;
@@ -265,19 +266,27 @@ $PGwidth:980px;
 							border:5px solid #000;
 							box-sizing:border-box;
 							overflow: hidden;
+							img{
+								width: 100%;
+								vertical-align: middle;								
+							}
 						}
 					}
 					.t{
 						@include r;
-						@include font(21px,21px,#000000);
+						@include font(21px,24px,#000000);
 						text-align: center;
+						max-height: 48px;
+						overflow: hidden;
 						margin: 28px 0;
 
 					}
 					.w{
-						@include r;
+						@include r(100%);
 						@include font(15px,22px,#666666);
 						text-align: center;
+						max-height: 44px;
+						overflow: hidden;
 					}
 					.date{
 						@include r;
@@ -390,7 +399,9 @@ $PGwidth:980px;
 				vertical-align: top;		
 				.t{
 					@include r;
-					@include font(21px,21px,#51711b);
+					@include font(21px,24px,#51711b);
+					max-height: 48px;
+					overflow: hidden;
 					text-align: center;
 					margin-bottom: 25px;
 
@@ -398,6 +409,8 @@ $PGwidth:980px;
 				.w{
 					@include r;
 					@include font(15px,22px,#666666);
+					max-height: 44px;
+					overflow: hidden;
 					text-align: center;
 				}
 				.date{
@@ -519,6 +532,10 @@ $PGwidth:980px;
 						border:5px solid #000;
 						box-sizing:border-box;
 						overflow: hidden;
+						img{
+							width: 100%;
+							vertical-align:middle;
+						}
 					}
 				}
 				.t{
@@ -622,6 +639,7 @@ $PGwidth:980px;
 			}
 			.teacher{
 				@include r;
+				display: none;
 				.t{
 					@include r;
 					@include font(36px,40px,#000000);
@@ -795,16 +813,17 @@ $PGwidth:980px;
 			width: $PGwidth;
 			margin: auto;
 			.n{
-				@include r(23.5%);
+				@include r(23.5%,134px);
 				box-sizing:border-box;
 				border:5px solid #5eafe1;
-				background-color: #5eafe1;
+				background-color: #FFF;
 				text-align: center;
+				overflow: hidden;
 				margin-right: 2%;
 				margin-bottom: 2%;
 				&:nth-child(4n){margin-right: 0;}
 				img{
-					max-width: 100%;
+					width: 100%;					
 					display: inline-block;
 					vertical-align: top;
 				}
@@ -951,6 +970,7 @@ $PGwidth:980px;
 				background: url(../images/footer_logo1.png) no-repeat;
 				background-position: right top;
 				margin-bottom: 15px;
+				display: none;
 			}
 			.logo2{
 				@include r(100%,21px);
