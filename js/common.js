@@ -58,7 +58,7 @@
 		}		
 		showloading(true);
 		$.ajax({
-			url: 'https://api.mlab.com/api/1/databases/chinesechess2016/collections/emailbox1?apiKey='+ webData.mlabApikey,
+			url: 'https://mongo-data-api-chinesechess.herokuapp.com/api/1/databases/chinesechess2016/collections/emailbox1?apiKey='+ webData.mlabApikey,
 			type: 'POST',
 			contentType: 'application/json',
 			data:JSON.stringify(webData.userdata),
@@ -249,7 +249,7 @@
 	}
 	function indexgetnews(_n){
 		$.ajax({
-			url: 'https://api.mlab.com/api/1/databases/chinesechess2016/collections/news_page'+_n+'?s={"_id":-1}&l=3&apiKey='+webData.mlabApikey,
+			url: 'https://mongo-data-api-chinesechess.herokuapp.com/api/1/databases/chinesechess2016/collections/news_page'+_n+'?s={"_id":-1}&l=3&apiKey='+webData.mlabApikey,
 			type: 'GET',
 			contentType: 'application/json',
 			success: function(data) {
@@ -331,7 +331,7 @@
 	}
 	function getDataCollectionIndex(_collectname,_callback){
 		$.ajax({
-			url: 'https://api.mlab.com/api/1/databases/chinesechess2016/collections/'+_collectname+webData.nowpage+'?s={"_id":-1}&apiKey='+ webData.mlabApikey,
+			url: 'https://mongo-data-api-chinesechess.herokuapp.com/api/1/databases/chinesechess2016/collections/'+_collectname+webData.nowpage+'?s={"_id":-1}&apiKey='+ webData.mlabApikey,
 			type: 'GET',
 			contentType: 'application/json',
 			success: function(data) {				
@@ -343,7 +343,7 @@
 	}
 	function getDataCollection(_collectname,_callback){
 		$.ajax({
-			url: 'https://api.mlab.com/api/1/databases/chinesechess2016/collections/'+_collectname+webData.nowpage+'?apiKey='+ webData.mlabApikey,
+			url: 'https://mongo-data-api-chinesechess.herokuapp.com/api/1/databases/chinesechess2016/collections/'+_collectname+webData.nowpage+'?apiKey='+ webData.mlabApikey,
 			type: 'GET',
 			contentType: 'application/json',
 			success: function(data) {
