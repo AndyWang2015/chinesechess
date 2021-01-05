@@ -28,7 +28,7 @@ gulp.task('js',function(){
 });
 gulp.task('connect', function() {
   $.connect.server({
-  	root: 'D:/yihsien/case/20160331_chess/chinese_chess/website/',
+  	root: 'D:/YiHsien/chinesechess/website/',
   	livereload: true
   });
 });
