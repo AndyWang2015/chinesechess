@@ -92,6 +92,7 @@
 		if(webData.mapgo!=2) return;
 		webData.getgeocoder = new google.maps.Geocoder();
 		webData.mapimage = 'http://ml-andy.github.io/chinesechess/website/images/mapicon.png';
+		showloading(false);
 		textTocoord(webData.mapaddr);
 	}
 	function changemap(_lat,_lon){
@@ -162,7 +163,7 @@
 		showloading(false);
 	}
 	function newsfunction(data){		
-		data = data.reverse();
+		data = data;
 		$('.news_boxin').html('');
 		for(i in data){
 			$('.news_boxin').append('<a href="news_content.html?id='+data[i]._id.$oid+'&page='+webData.nowpage+'" class="n"><div class="pic"><div class="picin"><img src="'+data[i].spic+'"></div></div><div class="t">'+data[i].title+'</div><div class="w">'+data[i].sword+'</div><div class="date">'+data[i].date+'</div><div class="more">觀看更多</div></a>');
@@ -343,7 +344,7 @@
 	}
 	function getDataCollection(_collectname,_callback){
 		$.ajax({
-			url: 'https://mongo-data-api-chinesechess.herokuapp.com/api/1/databases/chinesechess2016/collections/'+_collectname+webData.nowpage+'?apiKey='+ webData.mlabApikey,
+			url: 'https://mongo-data-api-chinesechess.herokuapp.com/api/1/databases/chinesechess2016/collections/'+_collectname+webData.nowpage+'?s={"_id":-1}&apiKey='+ webData.mlabApikey,
 			type: 'GET',
 			contentType: 'application/json',
 			success: function(data) {
@@ -373,7 +374,7 @@
 				coord = results[0].geometry.location.toString().replace('(','').replace(')','').split(',');
 				changemap(coord[0],coord[1]);				
 			} else {
-				alert("輸入間隔太快，請隔1~2秒再輸入");				
+				// alert("輸入間隔太快，請隔1~2秒再輸入");				
 			};
 		});
 	}
